@@ -1,7 +1,7 @@
 from groupyou.jobs.reaction import Reaction
 
 
-class Echo(Reaction):
+class BeepBoop(Reaction):
 
     def __init__(self):
         self.message = 'bad'
