@@ -8,19 +8,9 @@ import groupyou.jobs.dates
 class JobScheduler(object):
     def __init__(self, chat):
         self.chat = chat
-        self.reactionlist = []
-        self.datelist = []
 
-        reactlist = Reaction.__subclasses__()
-        datelist = Date.__subclasses__()
-
-        for reaction in reactlist:
-            new_job = reaction
-            reactlist.append(new_job)
-
-        for date in datelist:
-            new_job = date
-            datelist.append(new_job)
+        self.reactionlist = Reaction.__subclasses__()
+        self.datelist = Date.__subclasses__()
 
 
 
