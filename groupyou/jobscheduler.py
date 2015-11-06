@@ -16,7 +16,7 @@ class JobScheduler(object):
 
     def chat_hit(self, ping_dict):
         for job in self.reactionlist:
-            if job.react(ping_dict.get('name', ''), ping_dict.get('text', ''), ping_dict.get('attachments', [])):
+            if job.react(None, ping_dict.get('name', ''), ping_dict.get('text', ''), ping_dict.get('attachments', [])):
                 job.run(self.chat)
 
     def minute_check(self):
