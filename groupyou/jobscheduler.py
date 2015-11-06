@@ -1,8 +1,9 @@
-from groupyou.job import Job
 from groupyou.jobs.reaction import Reaction
 from groupyou.jobs.date import Date
+import groupyou.jobs.reactions
+import groupyou.jobs.dates
 
-import os
+
 
 class JobScheduler(object):
     def __init__(self, chat):
@@ -10,13 +11,8 @@ class JobScheduler(object):
         self.reactionlist = []
         self.datelist = []
 
-        dir = os.path.dirname(os.path.realpath(__file__))
-        datedir = dir + "/jobs/dates"
-        reactiondir = dir + "/jobs/reactions"
-        reactionlist = os.listdir(reactiondir)
-        datelist = os.listdir(datedir)
-        reactionlist.remove('__init__.py')
-        datelist.remove('__init__.py')
+        print(Reaction.__subclasses__())
+
 
 
     def chat_hit(self, ping_dict):
