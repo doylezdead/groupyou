@@ -15,7 +15,6 @@ bot_id = args.bid
 
 chat = Chat(bot_id)
 job_scheduler = JobScheduler(chat)
-quit()
 
 
 @bottle.route('/groupyou', method='POST')
