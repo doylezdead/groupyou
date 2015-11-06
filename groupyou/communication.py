@@ -21,7 +21,7 @@ class Chat(object):
     def flush(self):
         raw_send = json.dumps(self.tempdict)
         self.conn.request('POST', '/v3/bots/post', body=raw_send, headers={'Content-Type': 'application/json'})
-        self.conn.getresponse()
+        self.conn.getresponse().read()
         self.tempdict = {
             "bot_id": self.bot_id,
             "attachments": []
