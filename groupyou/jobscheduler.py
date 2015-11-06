@@ -11,7 +11,16 @@ class JobScheduler(object):
         self.reactionlist = []
         self.datelist = []
 
-        print(Reaction.__subclasses__())
+        reactlist = Reaction.__subclasses__()
+        datelist = Date.__subclasses__()
+
+        for reaction in reactlist:
+            new_job = reaction()
+            reactlist.append(new_job)
+
+        for date in datelist:
+            new_job = date()
+            datelist.append(new_job)
 
 
 
