@@ -18,19 +18,6 @@ class JobScheduler(object):
         reactionlist.remove('__init__.py')
         datelist.remove('__init__.py')
 
-        for x in range(0, len(reactionlist)):
-            item = reactionlist[x][0:-3]
-
-
-            new_job = job_class()
-            self.reactionlist.append(new_job)
-
-
-
-
-
-        new_job = job_class()
-        self.datelist.append(new_job)
 
     def chat_hit(self, ping_dict):
         for job in self.reactionlist:
