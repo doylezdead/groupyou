@@ -18,7 +18,8 @@ class Chat(object):
             log.error("Could not connect to groupme api")
 
     def flush(self):
-        self.conn.request('POST', '/v3/bots/post', body=self.tempdict, headers={'Content-Type': 'application/json'})
+        raw_send = json.dumps(self.tempdict).encode('utf-8')
+        self.conn.request('POST', '/v3/bots/post', body=raw_send, headers={'Content-Type': 'application/json'})
         self.tempdict = {
             "bot_id": self.bot_id,
             "attachments": []
