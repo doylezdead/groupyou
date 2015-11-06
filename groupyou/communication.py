@@ -13,9 +13,9 @@ class Chat(object):
             "attachments": []
         }
         try:
-            self.conn = htcli.HTTPConnection("https://api.groupme.com")
+            self.conn = htcli.HTTPConnection("api.groupme.com", port=443)
         except Exception as e:
-            log.error("Could not connect to groupme api")
+            print("Could not connect to groupme api")
 
     def flush(self):
         raw_send = json.dumps(self.tempdict).encode('utf-8')
