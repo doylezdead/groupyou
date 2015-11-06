@@ -13,7 +13,7 @@ class Chat(object):
             "attachments": []
         }
         try:
-            self.conn = htcli.HTTPConnection("https://api.groupme.com", port=80)
+            self.conn = htcli.HTTPConnection("https://api.groupme.com")
         except Exception as e:
             log.error("Could not connect to groupme api")
 
