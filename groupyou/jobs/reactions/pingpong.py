@@ -1,5 +1,6 @@
 from groupyou.jobs.reaction import Reaction
 
+
 class PingPong(Reaction):
     def __init__(self):
         super(Reaction, self).__init__()
