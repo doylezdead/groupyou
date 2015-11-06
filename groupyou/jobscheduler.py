@@ -12,12 +12,10 @@ class JobScheduler(object):
         self.reactionlist = Reaction.__subclasses__()
         self.datelist = Date.__subclasses__()
 
-
-
     def chat_hit(self, ping_dict):
         for job in self.reactionlist:
             if job.react(None, ping_dict.get('name', ''), ping_dict.get('text', ''), ping_dict.get('attachments', [])):
-                job.run(self.chat)
+                job.run(None, self.chat)
 
     def minute_check(self):
         pass
