@@ -7,8 +7,8 @@ class Echo(Reaction):
         self.message = 'bad'
 
     def react(self, user_name, text, attachments):
-        if text == 'beep':
-            self.message = 'boop'
+        if text.startswith('echo '):
+            self.message = text[4:]
             return True
         return False
 

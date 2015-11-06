@@ -8,7 +8,7 @@ class PingPong(Reaction):
 
     def react(self, user_name, text, attachments):
         if text == 'ping':
-            self.message = 'asdf'
+            self.message = 'pong'
             return True
         return False
 
