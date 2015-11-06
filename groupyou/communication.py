@@ -14,6 +14,7 @@ class Chat(object):
         }
         try:
             self.conn = htcli.HTTPConnection("api.groupme.com", port=443)
+            self.conn.set_debuglevel(1)
         except Exception as e:
             print("Could not connect to groupme api")
 
