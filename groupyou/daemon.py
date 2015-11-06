@@ -2,6 +2,7 @@ import bottle
 import json
 import logging
 import argparse
+import time
 from groupyou.jobscheduler import JobScheduler
 from groupyou.communication import Chat
 
@@ -22,6 +23,7 @@ def ping_event():
     raw_ping = bottle.request.body.readline()
     ping = json.loads(raw_ping.decode('utf-8'))
     print(ping)
+    time.sleep(1)
     job_scheduler.chat_hit(ping)
 
 root_logger.info('Ctrl-C to gracefully shut down the bot')
