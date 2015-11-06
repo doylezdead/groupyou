@@ -6,7 +6,7 @@ class PingPong(Reaction):
         super(Reaction, self).__init__()
 
     def react(self, user_name, text, attachments):
-        if text=='ping':
+        if text == 'ping':
             return True
         return False
 
