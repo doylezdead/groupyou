@@ -6,7 +6,7 @@ class Help(Reaction):
 
     def __init__(self):
         self.help = 'Display this help message.'
-        self.message = 'bad'
+        self.message = ''
 
     def react(self, user_name, text, attachments):
         if text == 'help':
