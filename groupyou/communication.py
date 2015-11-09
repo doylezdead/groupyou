@@ -1,5 +1,6 @@
 from http import client as htcli
 import json
+import time
 import logging
 
 log = logging.getLogger()
@@ -20,6 +21,7 @@ class Chat(object):
 
     def flush(self):
         raw_send = json.dumps(self.tempdict)
+        time.sleep(.5)
         self.conn.request('POST', '/v3/bots/post', body=raw_send, headers={'Content-Type': 'application/json'})
         self.conn.getresponse().read()
         self.tempdict = {
