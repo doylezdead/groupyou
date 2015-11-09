@@ -2,6 +2,7 @@ from groupyou.jobs.reaction import Reaction
 
 
 class Echo(Reaction):
+    help = '"echo asdf" will echo back "asdf"'
 
     def __init__(self):
         self.message = 'bad'

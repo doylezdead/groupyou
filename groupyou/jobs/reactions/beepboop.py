@@ -2,6 +2,7 @@ from groupyou.jobs.reaction import Reaction
 
 
 class BeepBoop(Reaction):
+    help = 'Responds with "boop" upon a "beep"'
 
     def __init__(self):
         self.message = 'bad'

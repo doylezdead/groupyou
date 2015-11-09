@@ -3,9 +3,9 @@ import groupyou.jobs.reactions
 
 
 class Help(Reaction):
+    help = 'Display this help message.'
 
     def __init__(self):
-        self.help = 'Display this help message.'
         self.message = ''
 
     def react(self, user_name, text, attachments):

@@ -2,6 +2,7 @@ from groupyou.jobs.reaction import Reaction
 
 
 class PingPong(Reaction):
+    help = 'Responds with "ping" upon a "pong"'
 
     def __init__(self):
         self.message = 'bad'
