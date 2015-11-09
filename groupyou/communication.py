@@ -23,7 +23,10 @@ class Chat(object):
         raw_send = json.dumps(self.tempdict)
         time.sleep(.5)
         self.conn.request('POST', '/v3/bots/post', body=raw_send, headers={'Content-Type': 'application/json'})
-        self.conn.getresponse().read()
+        try:
+            self.conn.getresponse().read()
+        except htcli.BadStatusLine as e:
+            pass
         self.tempdict = {
             "bot_id": self.bot_id,
             "attachments": []
