@@ -21,7 +21,7 @@ job_scheduler = JobScheduler(chat)
 def ping_event():
     raw_ping = bottle.request.body.readline()
     ping = json.loads(raw_ping.decode('utf-8'))
-    print(ping)
+    # print(ping)
     job_scheduler.chat_hit(ping)
 
 root_logger.info('Ctrl-C to gracefully shut down the bot')
