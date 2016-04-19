@@ -2,7 +2,7 @@ from groupyou.jobs.reaction import Reaction
 
 
 class Chprefix(Reaction):
-    help = '"echo asdf" will echo back "asdf"'
+    help = '"chprefix /newprefix" will change the working prefix to "/newprefix"'
 
     def __init__(self):
         self.message = 'bad'
@@ -13,8 +13,7 @@ class Chprefix(Reaction):
             return True
         return False
 
-    def run(self, chat, scheduler=None):
-        scheduler.prefix = self.message
+    def run(self, chat):
         chat.add_text("prefix changed to " + self.message)
         chat.flush()
-        return
+        return {"prefix": self.message, }
