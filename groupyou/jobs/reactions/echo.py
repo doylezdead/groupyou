@@ -9,7 +9,7 @@ class Echo(Reaction):
 
     def react(self, user_name, text, attachments):
         if text.startswith('echo '):
-            self.message = text[4:]
+            self.message = text[5:]
             return True
         return False
 

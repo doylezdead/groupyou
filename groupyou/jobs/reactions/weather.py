@@ -1,6 +1,6 @@
 from groupyou.jobs.reaction import Reaction
-from http import client as htcli
-
+import urllib.request
+import http.client as htcli
 
 class Weather(Reaction):
 
@@ -12,19 +12,37 @@ class Weather(Reaction):
             command = text.split(' ')
             if len(command) == 3:
                 if command[1] == 'forecast':
-
+                    pass
             elif len(command) == 2:
+                if command[1]:
+                    try:
+                        float(command[1])
+                        if len(command[1]) is 5:
+                            self.message = self.getCurrentZip(command[1])
+                            return True
+                    except ValueError:
+                        self.message = 'Bad zipcode'
+                        return True
 
-            elif len(command) == 1:
-                pass
             else:
                 self.message = 'Bad format for weather call'
                 return True
 
-            conn = htcli.HTTPConnection
-
             return True
         return False
+
+    def getCurrentZip(self, zipcode):
+        conn = htcli.HTTPConnection('http://api.wunderground.com')
+        conn.request('GET', '/api/420931bcbb94c902/conditions/q/' + zipcode + '.json')
+        response = conn.getresponse().read()
+
+        # request = urllib.request.urlopen('http://api.wunderground.com/api/420931bcbb94c902/conditions/q/' + zipcode + '.json')
+        # result = request.read()
+        # request.close()
+        print(response)
+        return 'not good'
+
+
 
     def run(self, chat):
         chat.add_text(self.message)

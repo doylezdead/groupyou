@@ -3,5 +3,6 @@ from groupyou.jobs.reactions.beepboop import BeepBoop
 from groupyou.jobs.reactions.echo import Echo
 from groupyou.jobs.reactions.help import Help
 from groupyou.jobs.reactions.chprefix import Chprefix
+from groupyou.jobs.reactions.weather import Weather
 
 
