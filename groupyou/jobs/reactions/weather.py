@@ -18,7 +18,7 @@ class Weather(Reaction):
                     try:
                         float(command[1])
                         if len(command[1]) is 5:
-                            self.message = self.getCurrentZip(zipcode=command[1])
+                            self.message = self.get_current_zip(zipcode=command[1])
                             return True
                     except ValueError:
                         self.message = 'Bad zipcode'
@@ -31,7 +31,7 @@ class Weather(Reaction):
             return True
         return False
 
-    def getCurrentZip(self, zipcode="00000"):
+    def get_current_zip(self, zipcode="00000"):
         conn = htcli.HTTPConnection('http://api.wunderground.com')
         conn.request('GET', '/api/420931bcbb94c902/conditions/q/' + zipcode + '.json')
         response = conn.getresponse().read()
@@ -40,6 +40,7 @@ class Weather(Reaction):
         # result = request.read()
         # request.close()
         print(response)
+        self.message = 'not good'
         return 'not good'
 
 
